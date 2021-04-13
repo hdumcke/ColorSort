@@ -1,0 +1,14 @@
+mat-toolbar {
+  margin-bottom: 50px;
+}
+
+mat-toolbar > span {
+  margin-left: 10px;
+}
+
+.bucket-wrapper {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}

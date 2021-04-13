@@ -1,0 +1,12 @@
+<div class="bucket" cdkDropList [cdkDropListData]="bucket.balls" (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let ball of bucket.balls; index as i" class="{{ ball.color }}">
+        <mat-card class="ball" *ngIf="i === 0; else noDrag" cdkDrag >
+	    <p>{{ i }}</p> 
+        </mat-card>
+        <ng-template #noDrag>
+        <mat-card class="ball" #noDrag>
+	    <p>{{ i }}</p> 
+        </mat-card>
+        </ng-template>
+    </div>
+</div>

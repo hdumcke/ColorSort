@@ -1,0 +1,69 @@
+.bucket {
+  width: 64px;
+  height: 250px;
+  margin: 0 25px 25px 0;
+  border: 3px solid black;
+  background-color: white;
+  border-top-width: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.ball {
+  width: 30px;
+  height: 30px;
+  !border: 1px solid black;
+  border-radius: 50%;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+div.olive .mat-card {
+  background-color: olive;
+}
+
+div.pink .mat-card {
+  background-color: pink;
+}
+
+div.purple .mat-card {
+  background-color: purple;
+}
+
+div.black .mat-card {
+  background-color: black;
+}
+
+div.green .mat-card {
+  background-color: green;
+}
+
+div.red .mat-card {
+  background-color: red;
+}
+
+div.blue .mat-card {
+  background-color: blue;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 50%;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+div.blue .mat-card .cdk-drag-preview {
+  background-color: blue;
+}
