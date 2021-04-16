@@ -8,6 +8,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { BucketComponent } from './bucket/bucket.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     BrowserAnimationsModule,
     MatCardModule,
     DragDropModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

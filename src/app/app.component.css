@@ -12,3 +12,7 @@ mat-toolbar > span {
   display: flex;
   justify-content: space-around;
 }
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "colorsort-e1138": {
+      "hosting": {
+        "ColorSort": [
+          "colorsort-e1138"
+        ]
+      }
+    }
+  }
+}

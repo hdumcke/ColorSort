@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
 import { Bucket, Ball } from './bucket';
 
@@ -10,6 +10,7 @@ import { Bucket, Ball } from './bucket';
 export class BucketComponent {
   @Input() bucket: Bucket = { balls: [] };
   @Input() index: number = 0;
+  @Output() checkCompleteEvent = new EventEmitter<any>();
 
   drop(event: CdkDragDrop<Ball[]>) {
     if (event.previousContainer !== event.container 
@@ -20,6 +21,11 @@ export class BucketComponent {
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
+      this.checkCompleteEvent.emit(null);
     }
+  }
+
+  topPredicate(index: number, item: CdkDrag<number>) {
+    return index === 0;
   }
 }

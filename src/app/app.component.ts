@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Bucket, Ball } from './bucket/bucket';
+import { Game } from './bucket/game';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -8,26 +9,52 @@ import { Bucket, Ball } from './bucket/bucket';
 })
 export class AppComponent {
   title = 'ColorSort';
-  bucket1: Ball[] = [
-      { id: 0, color: 'red' },
-      { id: 0, color: 'blue' },
-      { id: 0, color: 'green' },
-      { id: 0, color: 'black' },
-  ]
-  bucket2: Ball[] = [
-      { id: 0, color: 'pink' },
-      { id: 0, color: 'purple' },
-      { id: 0, color: 'olive' },
-      { id: 0, color: 'gray' },
-  ]
-  bucket3: Ball[] = [
-      { id: 0, color: 'red' },
-      { id: 0, color: 'green' },
-  ]
-  buckets: Bucket[] = [
-      { balls: this.bucket1 },
-      { balls: this.bucket2 },
-      { balls: this.bucket3 },
-      { balls: [] },
-  ]
+  level: number = 1;
+  buckets = new Game(1).buckets;
+  save_buckets = JSON.parse(JSON.stringify(this.buckets));
+
+  constructor(public dialog: MatDialog) {}
+
+  openHelp() {
+    this.dialog.open(HelpDialog);
+  }
+
+  setLevel(level: number) {
+      this.level = level;
+      this.buckets = new Game(level).buckets;
+      this.save_buckets = JSON.parse(JSON.stringify(this.buckets));
+  };
+
+  reshuffleLevel() {
+      this.buckets = new Game(this.level).buckets;
+      this.save_buckets = JSON.parse(JSON.stringify(this.buckets));
+  }
+
+  resetleLevel() {
+      this.buckets = JSON.parse(JSON.stringify(this.save_buckets));
+  }
+
+  checkCompletion(event: any): void {
+      for (let i = 0; i < this.buckets.length; i++) {
+	  // inore empty buckets
+	  if ( this.buckets[i].balls.length === 0)
+	      continue;
+	  // you are not done if a bucket is not full
+	  if ( this.buckets[i].balls.length !== 4)
+	      return;
+	  // you are not done if a bucket does not have all balls with same color
+          for (let j = 1; j < 4; j++) {
+	      if ( this.buckets[i].balls[j-1].color !== this.buckets[i].balls[j].color )
+		  return;
+	  }
+      }
+      this.setLevel(this.level + 1);
+  }
+
 }
+
+@Component({
+  selector: 'help-dialog',
+  templateUrl: 'help.html',
+})
+export class HelpDialog {}
