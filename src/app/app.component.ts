@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Game } from './bucket/game';
 import { MatDialog } from '@angular/material/dialog';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  faGithub = faGithub;
   title = 'ColorSort';
   level: number = 1;
   buckets = new Game(1).buckets;

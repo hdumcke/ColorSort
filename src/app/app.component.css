@@ -16,3 +16,7 @@ mat-toolbar > span {
 .toolbar-spacer {
   flex: 1 1 auto;
 }
+
+.help-github-link {
+   color: white;
+}
