@@ -10,8 +10,10 @@ Open Issues
 ===========
 
 - adapt to available screen size, test on phone
+- backgrond color when dragging
 - Firebase authentication for muli-tenancy
 - Store user state in Firebase
+- write test cases
 
 Where to try
 ============

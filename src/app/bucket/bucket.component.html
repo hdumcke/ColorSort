@@ -1,12 +1,16 @@
-<div class="bucket" cdkDropList [cdkDropListData]="bucket.balls" (cdkDropListDropped)="drop($event)" [cdkDropListSortPredicate]="topPredicate">
+<div>
+    <div class="bucket" cdkDropList [cdkDropListData]="bucket.balls" (cdkDropListDropped)="drop($event)" [cdkDropListSortPredicate]="topPredicate" fxLayout="column" fxLayoutAlign="end" style="height: {{ layout.bucket_height }}px;">
     <div *ngFor="let ball of bucket.balls; index as i" class="{{ ball.color }}">
-        <mat-card class="ball" *ngIf="i === 0; else noDrag" cdkDrag >
+        <mat-card class="ball" *ngIf="i === 0; else noDrag" cdkDrag style="width: {{ layout.ball_size }}px; height: {{ layout.ball_size }}px;">
 	    <p></p> 
         </mat-card>
         <ng-template #noDrag>
-        <mat-card class="ball" #noDrag>
+	    <mat-card class="ball" #noDrag style="width: {{ layout.ball_size }}px; height: {{ layout.ball_size }}px;">
 	    <p></p> 
         </mat-card>
         </ng-template>
     </div>
+</div>
+<div class="bucket-spacer" style="width: {{ layout.spacer_width }}px; height: {{ layout.spacer_height }}px;">
+</div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
-import { Bucket, Ball } from './bucket';
+import { Bucket, Ball, Layout } from './bucket';
 
 @Component({
   selector: 'app-bucket',
@@ -11,6 +11,22 @@ export class BucketComponent {
   @Input() bucket: Bucket = { balls: [] };
   @Input() index: number = 0;
   @Output() checkCompleteEvent = new EventEmitter<any>();
+
+/**
+*  layout: Layout = {
+*    ball_size: 30,
+*    bucket_height: 251,
+*    spacer_height: 50,
+*    spacer_width: 72,
+*  }
+**/
+
+  layout: Layout = {
+    ball_size: 3,
+    bucket_height: 143,
+    spacer_height: 20,
+    spacer_width: 45,
+  }
 
   drop(event: CdkDragDrop<Ball[]>) {
     if (event.previousContainer !== event.container 
