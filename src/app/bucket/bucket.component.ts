@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
 import { Bucket, Ball, Layout } from './bucket';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-bucket',
@@ -12,20 +13,35 @@ export class BucketComponent {
   @Input() index: number = 0;
   @Output() checkCompleteEvent = new EventEmitter<any>();
 
-/**
-*  layout: Layout = {
-*    ball_size: 30,
-*    bucket_height: 251,
-*    spacer_height: 50,
-*    spacer_width: 72,
-*  }
-**/
-
   layout: Layout = {
     ball_size: 3,
     bucket_height: 143,
     spacer_height: 20,
     spacer_width: 45,
+  }
+
+  constructor(private observer: BreakpointObserver) {
+
+      this.observer.observe(Breakpoints.XSmall).subscribe(result => {
+
+	  if ( result.matches ) {
+	      this.layout = {
+                  ball_size: 3,
+                  bucket_height: 143,
+                  spacer_height: 20,
+                  spacer_width: 45,
+	      }
+	  }
+	  else {
+	      this.layout = {
+                  ball_size: 30,
+                  bucket_height: 251,
+                  spacer_height: 50,
+                  spacer_width: 72,
+	      }
+	  }
+      });
+
   }
 
   drop(event: CdkDragDrop<Ball[]>) {
