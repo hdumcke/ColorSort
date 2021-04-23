@@ -14,10 +14,10 @@ export class BucketComponent {
   @Output() checkCompleteEvent = new EventEmitter<any>();
 
   layout: Layout = {
-    ball_size: 3,
-    bucket_height: 143,
-    spacer_height: 20,
-    spacer_width: 45,
+    ballSize: 3,
+    bucketHeight: 143,
+    spacerHeight: 20,
+    spacerWidth: 45,
   }
 
   constructor(private observer: BreakpointObserver) {
@@ -26,18 +26,18 @@ export class BucketComponent {
 
 	  if ( result.matches ) {
 	      this.layout = {
-                  ball_size: 3,
-                  bucket_height: 143,
-                  spacer_height: 20,
-                  spacer_width: 45,
+                  ballSize: 3,
+                  bucketHeight: 143,
+                  spacerHeight: 20,
+                  spacerWidth: 45,
 	      }
 	  }
 	  else {
 	      this.layout = {
-                  ball_size: 30,
-                  bucket_height: 251,
-                  spacer_height: 50,
-                  spacer_width: 72,
+                  ballSize: 30,
+                  bucketHeight: 251,
+                  spacerHeight: 50,
+                  spacerWidth: 72,
 	      }
 	  }
       });

@@ -22,6 +22,6 @@
       <mat-icon>help</mat-icon>
     </button>
 </mat-toolbar>
-<div class="bucket-wrapper" cdkDropListGroup  fxLayout="row wrap" fxLayoutGap="20px">
+<div class="bucket-wrapper" cdkDropListGroup  fxLayout="row wrap" fxLayoutGap="10px">
     <app-bucket *ngFor="let bucket of buckets; index as bi" [bucket]="bucket" [index]="bi" (checkCompleteEvent)="checkCompletion($event)"></app-bucket>
 </div>

@@ -1,5 +1,6 @@
 export interface Ball {
     color: string;
+    colorHex: string;
 }
 
 export interface Bucket {
@@ -7,8 +8,8 @@ export interface Bucket {
 }
 
 export interface  Layout {
-    ball_size: number;
-    bucket_height: number;
-    spacer_height: number;
-    spacer_width: number;
+    ballSize: number;
+    bucketHeight: number;
+    spacerHeight: number;
+    spacerWidth: number;
 }

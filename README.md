@@ -9,8 +9,6 @@ Deployed to [Firebase](https://firebase.google.com).
 Open Issues
 ===========
 
-- adapt to available screen size, test on phone
-- backgrond color when dragging
 - Firebase authentication for muli-tenancy
 - Store user state in Firebase
 - write test cases
